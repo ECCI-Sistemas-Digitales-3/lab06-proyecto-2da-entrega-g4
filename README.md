@@ -2,5 +2,23 @@
 # Lab06: Proyecto 2da. entrega
 
 ## Integrantes
+# Integrantes
+| Integrantes |
+| - |
+| [`Diego Lopez`][Alejo] |
+| [`Daniel Ramirez`][Daniel]||
+| [`Sebastian Martinez`][Sebas]||
+||
 
 ## Documentación
+
+
+## 👨‍🔧 Créditos
+
+**Grupo 4 - UNIVERSIDAD ECCI**
+
+[//]: # (Referencias)
+
+[Alejo]: <https://github.com/Alejibiris>
+[Daniel]: <https://github.com/D4N1EL-R4M1R3Z>
+[Sebas]: <https://github.com/SebasMtz30>
