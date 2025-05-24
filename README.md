@@ -48,14 +48,6 @@ Este proyecto utiliza MicroPython para controlar y monitorear sensores de temper
 
 El proyecto requiere adaptar librerías MQTT ligeras y personalizadas para el entorno restringido del microcontrolador, dado que MicroPython no incluye todas las librerías estándar de Python. Esto permite una comunicación confiable con un broker MQTT, fundamental para el monitoreo en tiempo real y el control remoto del sistema.
 
-**Librerías MQTT Personalizadas**
-
-- **umqtt.simple**  
-  Implementación básica y ligera para clientes MQTT en MicroPython. Proporciona funcionalidades esenciales para conectar, publicar y suscribirse a tópicos MQTT, utilizando sockets básicos. Es la base para una comunicación sencilla y eficiente con el broker MQTT.
-
-- **umqtt.robust** (no incluido pero recomendado)  
-  Extiende `umqtt.simple` con manejo de reconexiones automáticas y tolerancia a fallos de red, ideal para entornos IoT donde la estabilidad de la conexión puede variar.
-
 **Descripción de Scripts**
 
 - `Lectura_ds18x20.py`  
