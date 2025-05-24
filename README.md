@@ -17,9 +17,6 @@ El sistema está basado en **Micropython**, un lenguaje derivado de Python dise�
 
 - [`Imagenes/`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/tree/main/Imagenes)  Diagramas, capturas y recursos visuales relacionados con el proyecto.
 
-- [`.github/`]()  
-  Configuraciones y workflows para GitHub Actions.
-
 - [`flows.json`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/flows.json)  
   Archivo de configuración para simulaciones o flujos relacionados.
 
