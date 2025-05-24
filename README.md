@@ -42,6 +42,51 @@ Estas librerías permiten que el dispositivo embebido mantenga comunicación con
 
 ---
 
+### Detalle adicional sobre uso y funcionalidad
+
+Este proyecto utiliza MicroPython para controlar y monitorear sensores de temperatura DS18B20 en un sistema embebido, con comunicación vía MQTT para telemetría y control remoto.
+
+El proyecto requiere adaptar librerías MQTT ligeras y personalizadas para el entorno restringido del microcontrolador, dado que MicroPython no incluye todas las librerías estándar de Python. Esto permite una comunicación confiable con un broker MQTT, fundamental para el monitoreo en tiempo real y el control remoto del sistema.
+
+**Librerías MQTT Personalizadas**
+
+- **umqtt.simple**  
+  Implementación básica y ligera para clientes MQTT en MicroPython. Proporciona funcionalidades esenciales para conectar, publicar y suscribirse a tópicos MQTT, utilizando sockets básicos. Es la base para una comunicación sencilla y eficiente con el broker MQTT.
+
+- **umqtt.robust** (no incluido pero recomendado)  
+  Extiende `umqtt.simple` con manejo de reconexiones automáticas y tolerancia a fallos de red, ideal para entornos IoT donde la estabilidad de la conexión puede variar.
+
+**Descripción de Scripts**
+
+- `Lectura_ds18x20.py`  
+  Gestiona la lectura de uno o varios sensores DS18B20 conectados a un pin específico, mostrando las temperaturas en consola.
+
+- `Pub&Sub_Mqtt_ds18x20.py`  
+  Combina la lectura de sensores con la publicación periódica de sus temperaturas a tópicos MQTT específicos. Además, se suscribe a tópicos de control para activar o desactivar resistencias eléctricas en el sistema, gestionando los mensajes recibidos.
+
+- `Pub_Mqtt.py`  
+  Ejemplo básico de publicación periódica de datos a un tópico MQTT, simula el envío de valores de temperatura.
+
+- `Sub_Mqtt.py`  
+  Se suscribe a un tópico MQTT y controla un LED físico en función de los mensajes recibidos (encender o apagar).
+
+- `config.py`  
+  Contiene la configuración de red Wi-Fi para facilitar la conexión de los dispositivos embebidos.
+
+**Funcionamiento General**
+
+Los dispositivos embebidos corren MicroPython y usan estas librerías para:
+
+- Conectarse a una red Wi-Fi.
+- Conectar y mantener sesión con un broker MQTT.
+- Leer sensores de temperatura y publicar sus datos.
+- Recibir comandos para controlar actuadores (resistencias, LED).
+- Ejecutar acciones según comandos recibidos vía MQTT.
+
+Este esquema facilita la creación de un sistema distribuido de monitoreo y control remoto, adaptable a distintas aplicaciones industriales o domóticas.
+
+---
+
 ## 🛠️ Funcionalidad del sistema de control de temperatura
 
 El código de control implementa:
