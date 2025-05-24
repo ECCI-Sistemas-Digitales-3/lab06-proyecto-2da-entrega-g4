@@ -12,7 +12,8 @@ El sistema está basado en **Micropython**, un lenguaje derivado de Python dise�
 
 ## 📂 Estructura del repositorio
 
-- `Codigos/`  
+- [`Codigos/`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/tree/main/Codigos) — Contiene los códigos en MicroPython para la parte de control de temperatura y comunicación MQTT.
+
   Contiene los códigos fuente en **Micropython** que implementan la lógica del control de temperatura y comunicación MQTT para el mezclador de pinturas.
 
 - `Imagenes/`  
