@@ -66,8 +66,8 @@ Direccion Sensor_1: ![Direccion Sensor_1](Imagenes/Direccion_Sensor1.jpg) Direcc
 - `Sub_Mqtt.py`  
   Se suscribe a un tópico MQTT y controla un LED físico en función de los mensajes recibidos (encender o apagar).
   
-  Led Encendido:  ![Led_On](Imagenes/Mqtt_Sub_On.jpg)
-  Led Apagado:  ![LedOff](Imagenes/Mqtt_Sub_Off.jpg) 
+  Led Encendido: ![Led_On](Imagenes/Mqtt_Sub_On.jpg)
+  Led Apagado:  ![LedOff](Imagenes/Mqtt_Sub_OFF.jpg) 
 
 - `config.py`  
   Contiene la configuración de red Wi-Fi para facilitar la conexión de los dispositivos embebidos.
