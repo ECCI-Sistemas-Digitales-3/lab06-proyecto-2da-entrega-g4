@@ -52,10 +52,12 @@ El proyecto requiere adaptar librerías MQTT ligeras y personalizadas para el en
 
 - `Lectura_ds18x20.py`  
   Gestiona la lectura de uno o varios sensores DS18B20 conectados a un pin específico, mostrando las temperaturas en consola. Adicionalmente para cada sensor se obtuvo la direccion.
-  Direccion Sensor_1: ![Direccion Sensor_1](Imagenes/Direccion_Sensor1.jpg) Direccion Sensor_2: ![Direccion Sensor_2](Imagenes/Direccion_Sensor2.jpg) Direccion Sensor_3: ![Direccion Sensor_3](Imagenes/Direccion_Sensor3.jpg)
+  
+Direccion Sensor_1: ![Direccion Sensor_1](Imagenes/Direccion_Sensor1.jpg) Direccion Sensor_2: ![Direccion Sensor_2](Imagenes/Direccion_Sensor2.jpg) Direccion Sensor_3: ![Direccion Sensor_3](Imagenes/Direccion_Sensor3.jpg)
 
 - `Pub&Sub_Mqtt_ds18x20.py`  
   Combina la lectura de sensores con la publicación periódica de sus temperaturas a tópicos MQTT específicos. Además, se suscribe a tópicos de control para activar o desactivar resistencias eléctricas en el sistema, gestionando los mensajes recibidos.
+  
   Lectura Temperatura: ![Lectura temperatura](Imagenes/Lectura_Temp.jpg)
 
 - `Pub_Mqtt.py`  
@@ -63,7 +65,9 @@ El proyecto requiere adaptar librerías MQTT ligeras y personalizadas para el en
 
 - `Sub_Mqtt.py`  
   Se suscribe a un tópico MQTT y controla un LED físico en función de los mensajes recibidos (encender o apagar).
-  Led Encendido:  ![Led_On](Imagenes/Mqtt_Sub_On.jpg)  Led Apagado:  ![Led_Off](Imagenes/Mqtt_Sub_Off.jpg) 
+  
+  Led Encendido:  ![Led_On](Imagenes/Mqtt_Sub_On.jpg)
+  Led Apagado:  ![LedOff](Imagenes/Mqtt_Sub_Off.jpg) 
 
 - `config.py`  
   Contiene la configuración de red Wi-Fi para facilitar la conexión de los dispositivos embebidos.
