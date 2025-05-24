@@ -20,7 +20,7 @@ El sistema está basado en **Micropython**, un lenguaje derivado de Python dise�
 - [`.github/`]()  
   Configuraciones y workflows para GitHub Actions.
 
-- [`flows.json`]()  
+- [`flows.json`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/flows.json)  
   Archivo de configuración para simulaciones o flujos relacionados.
 
 ---
