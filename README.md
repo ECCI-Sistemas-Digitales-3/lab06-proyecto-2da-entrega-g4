@@ -4,7 +4,7 @@
 
 ## 📘 Descripción general
 
-Este repositorio contiene la segunda entrega del proyecto integrador para el laboratorio 06 del curso Sistemas Digitales 3 en la Universidad ECCI. El proyecto se centra en la implementación de un sistema de control de temperatura para un **Mezclador de Pinturas**, utilizando tecnologías embebidas.
+Esta entrega contiene la segunda entrega del proyecto integrador para el laboratorio 06 del curso Sistemas Digitales 3 en la Universidad ECCI. El proyecto se centra en la implementación de un sistema de control de temperatura para un **Mezclador de Pinturas**, utilizando tecnologías embebidas.
 
 El sistema está basado en **Micropython**, un lenguaje derivado de Python diseñado para microcontroladores y dispositivos con recursos limitados. Debido a las diferencias con Python convencional, gran parte del código incluye librerías adaptadas para el entorno Micropython, en particular para manejar comunicación MQTT.
 
