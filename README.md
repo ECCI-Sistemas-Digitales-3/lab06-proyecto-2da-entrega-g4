@@ -72,6 +72,14 @@ Direccion Sensor_1: ![Direccion Sensor_1](Imagenes/Direccion_Sensor1.jpg) Direcc
 - `config.py`  
   Contiene la configuración de red Wi-Fi para facilitar la conexión de los dispositivos embebidos.
 
+**📊 Visualización en Node-RED**
+Para el monitoreo remoto del sistema de control de temperatura, se utilizó Node-RED como plataforma de visualización y control. A través de esta herramienta, se diseñó un panel interactivo donde se muestran las temperaturas en tiempo real obtenidas por los sensores DS18B20, y se controlan actuadores como LEDs o resistencias.
+
+El flujo de Node-RED se conecta al broker MQTT para lectura y control. Esto permite una visualización clara del estado del sistema y facilita la interacción.
+
+Lectura y Control NodeRed: ![Lectura_Control](Imagenes/NodeRed-Mqtt_Pub&Sub_Lectura&Control_Temp.jpg)
+Funciones NodeRed:  ![Funicones](NodeRed_Funciones-Mqtt_Pub&Sub_Lectura&Control_Temp.jpg) 
+
 **Funcionamiento General**
 
 Los dispositivos embebidos corren MicroPython y usan estas librerías para:
