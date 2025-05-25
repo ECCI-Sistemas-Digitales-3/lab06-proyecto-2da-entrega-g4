@@ -78,7 +78,7 @@ Para el monitoreo remoto del sistema de control de temperatura, se utilizó Node
 El flujo de Node-RED se conecta al broker MQTT para lectura y control. Esto permite una visualización clara del estado del sistema y facilita la interacción.
 
 Lectura y Control NodeRed: ![Lectura_Control](Imagenes/NodeRed-Mqtt_Pub&Sub_Lectura&Control_Temp.jpg)
-Funciones NodeRed:  ![Funicones](NodeRed_Funciones-Mqtt_Pub&Sub_Lectura&Control_Temp.jpg) 
+Funciones NodeRed:  ![Funciones](Imagenes/NodeRed_Funciones-Mqtt_Pub&Sub_Lectura&Control_Temp.jpg) 
 
 **Funcionamiento General**
 
