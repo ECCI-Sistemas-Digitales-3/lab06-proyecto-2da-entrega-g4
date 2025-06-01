@@ -2,11 +2,21 @@
 
 # Lab06: Proyecto 2da Entrega - Control de Temperatura para Mezclador de Pinturas
 
+## 👥 Integrantes
+
+| Integrantes                   |
+|------------------------------|
+| [`Diego Lopez`][Alejo]        |
+| [`Daniel Ramirez`][Daniel]    |
+| [`Sebastian Martinez`][Sebas] |
+
+---
+
 ## 📘 Descripción general
 
 Esta entrega contiene la segunda entrega del proyecto integrador para el laboratorio 06 del curso Sistemas Digitales 3 en la Universidad ECCI. El proyecto se centra en la implementación de un sistema de control de temperatura para un **Mezclador de Pinturas**, utilizando tecnologías embebidas.
 
-El sistema está basado en **Micropython**, un lenguaje derivado de Python diseñado para microcontroladores y dispositivos con recursos limitados. Debido a las diferencias con Python convencional, gran parte del código incluye librerías adaptadas para el entorno Micropython, en particular para manejar comunicación MQTT.
+Este proyecto implementa un sistema distribuido para la adquisición y transmisión de temperaturas desde sensores DS18B20, con control remoto de resistencias usando el protocolo MQTT. El sistema está pensado para funcionar con una Raspberry Pi Pico W como dispositivo de lectura y publicación de datos, y un segundo nodo receptor como puede ser una Raspberry Pi Zero W o cualquier otro cliente MQTT.
 
 ---
 
@@ -17,6 +27,34 @@ El sistema está basado en **Micropython**, un lenguaje derivado de Python dise�
 - [`Imagenes/`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/tree/main/Imagenes) Diagramas, capturas y recursos visuales relacionados con el proyecto.
 
 - [`flows.json`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/flows.json) Archivo de configuración para simulaciones o flujos relacionados.
+
+## 📂 Estructura de Archivos
+
+| Archivo                    | Descripción                                         |
+|---------------------------|-----------------------------------------------------|
+| `Lectura_ds18x20.py`       | Lectura básica de sensores DS18B20.                |
+| `Pub&Sub_Mqtt_ds18x20.py`  | Publicación de temperatura y recepción de comandos.|
+| `Pub_Mqtt.py`              | Publicación continua de valor simulado.            |
+| `Sub_Mqtt.py`              | Cliente MQTT que controla un LED según el mensaje. |
+| `ds18x20.py`               | Librería para sensores DS18B20.                    |
+| `onewire.py`               | Librería del protocolo 1-Wire.                     |
+
+## 🧱 Componentes del Sistema
+### 📡 Raspberry Pi Pico W (Nodo Sensor)
+
+- Lectura de hasta 5 sensores DS18B20 mediante protocolo 1-Wire.
+
+- Publicación de las temperaturas en distintos topics MQTT.
+
+- Recepción de comandos desde MQTT para simular control de resistencias.
+
+- Conexión Wi-Fi automática usando credenciales externas.
+
+### 💻 Nodo Receptor (Broker + Cliente)
+
+- Capacidad de enviar comandos de control a resistencias.
+
+- Implementación demostrativa con encendido de LED como respuesta a mensajes.
 
 ---
 
@@ -57,28 +95,20 @@ Direccion Sensor_1: ![Direccion Sensor_1](Imagenes/Direccion_Sensor1.jpg) Direcc
 
 - `Pub&Sub_Mqtt_ds18x20.py`  
   Combina la lectura de sensores con la publicación periódica de sus temperaturas a tópicos MQTT específicos. Además, se suscribe a tópicos de control para activar o desactivar resistencias eléctricas en el sistema, gestionando los mensajes recibidos.
-  
-  Lectura Temperatura: ![Lectura temperatura](Imagenes/Lectura_Temp.jpg)
 
 - `Pub_Mqtt.py`  
-  Ejemplo básico de publicación periódica de datos a un tópico MQTT, simula el envío de valores de temperatura. ![MQTTPub](Imagenes/Mqtt_Pub.jpg) Lectura y Control de Temperatura ![Lectura&Control](Imagenes/Mqtt_Pub&Sub_Lectura&Control_Temp.jpg) 
+  Ejemplo básico de publicación periódica de datos a un tópico MQTT, simula el envío de valores de temperatura. 
 
 - `Sub_Mqtt.py`  
   Se suscribe a un tópico MQTT y controla un LED físico en función de los mensajes recibidos (encender o apagar).
-  
-  Led Encendido: ![Led_On](Imagenes/Mqtt_Sub_On.jpg)
-  Led Apagado:  ![LedOff](Imagenes/Mqtt_Sub_OFF.jpg) 
 
 - `config.py`  
   Contiene la configuración de red Wi-Fi para facilitar la conexión de los dispositivos embebidos.
 
-**📊 Visualización en Node-RED**
+**📊 Node-RED**
 Para el monitoreo remoto del sistema de control de temperatura, se utilizó Node-RED como plataforma de visualización y control. A través de esta herramienta, se diseñó un panel interactivo donde se muestran las temperaturas en tiempo real obtenidas por los sensores DS18B20, y se controlan actuadores como LEDs o resistencias.
 
 El flujo de Node-RED se conecta al broker MQTT para lectura y control. Esto permite una visualización clara del estado del sistema y facilita la interacción.
-
-Lectura y Control NodeRed: ![Lectura_Control](Imagenes/NodeRed-Mqtt_Pub&Sub_Lectura&Control_Temp.jpg)
-Funciones NodeRed:  ![Funciones](Imagenes/NodeRed_Funciones-Mqtt_Pub&Sub_Lectura&Control_Temp.jpg) 
 
 **Funcionamiento General**
 
@@ -105,32 +135,52 @@ El código de control implementa:
 
 Esto forma parte del proyecto integrador donde el mezclador de pinturas requiere un control preciso de temperatura para asegurar la calidad del producto final.
 
+## 📌 Notas Importantes
+
+- El código soporta hasta 5 sensores pero puede extenderse
+
+- Las direcciones de los sensores se detectan automáticamente
+
+- El sistema incluye manejo robusto de errores en conexiones
+
+- Los tiempos de lectura y publicación son configurables
+
+## 📊 Visualizacion 
+
+A continuación se presentan evidencias gráficas del funcionamiento del sistema de monitoreo y control de temperatura:
+
+### 📊 Dashboard en Node-RED
+
+![Lectura_Control](Imagenes/Actualizacion-NodeRed.jpg)
+![Lectura_Control](Imagenes/Actualizacion-dashboard.jpg)
+
+Esta interfaz, desarrollada en Node-RED, permite visualizar en tiempo real las temperaturas captadas por los sensores DS18B20. Incluye medidores tipo *gauge*, indicadores LED y gráficas históricas por cada sensor. Las temperaturas se actualizan automáticamente cada 5 segundos mediante los mensajes MQTT recibidos.
+
 ---
 
-## 👥 Integrantes
+### 🧪 Lectura de Temperatura en Terminal
 
-| Integrantes                   |
-|------------------------------|
-| [`Diego Lopez`][Alejo]        |
-| [`Daniel Ramirez`][Daniel]    |
-| [`Sebastian Martinez`][Sebas] |
+![Lectura temperatura](Imagenes/Lectura_Temp.jpg)
+
+Captura de la Raspberry Pi Pico W mostrando la lectura en consola de los 3 sensores DS18B20 conectados. Las temperaturas se expresan en grados Celsius con dos decimales de precisión. Esta lectura se realiza antes de publicar los datos por MQTT.
 
 ---
 
-## 📄 Documentación adicional
+### 💡 Activación de LED por MQTT
 
-Se recomienda revisar:
+![Led_On](Imagenes/Mqtt_Sub_On.jpg)
+![LedOff](Imagenes/Mqtt_Sub_OFF.jpg) 
 
-- Informe detallado del proyecto (en desarrollo)  
-- Guía de instalación y despliegue en hardware embebido (próximamente)
+Aquí se evidencia la respuesta del sistema al recibir un comando `ON` desde el tópico `salidas/rpiZeroW/led`. El LED conectado al pin 28 se activa, demostrando que el nodo receptor MQTT interpreta correctamente las órdenes remotas. Adicionalmente tambien recibe el comando `OFF`
 
 ---
 
-## 👨‍🔧 Créditos
+### 🌐 Conexión Exitosa a Wi-Fi y Broker MQTT
 
-**Grupo 4 - UNIVERSIDAD ECCI**
+![MQTTPub](Imagenes/Mqtt_Pub.jpg)
+Mensaje de consola confirmando la conexión exitosa a la red Wi-Fi y al broker MQTT. Esta etapa es esencial para garantizar la transmisión de datos entre nodos.
 
-[//]: # (Referencias)
+---
 
 [Alejo]: <https://github.com/Alejibiris>  
 [Daniel]: <https://github.com/D4N1EL-R4M1R3Z>  
