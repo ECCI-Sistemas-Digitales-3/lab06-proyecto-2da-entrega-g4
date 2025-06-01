@@ -111,6 +111,16 @@ El flujo de Node-RED se conecta al broker MQTT para lectura y control. Esto perm
 
 ---
 
+## 📲 Requisitos
+
+- Raspberry Pi Pico W con MicroPython.
+- Red Wi-Fi local.
+- Broker MQTT.
+- Cliente MQTT para suscribirse o enviar mensajes (Node-RED, MQTT Explorer, etc.).
+- Sensores **DS18B20** conectados con resistencia de 4.7kΩ en el pin GPIO 22.
+
+---
+
 ## 🧩 Funcionamiento General
 
 Los dispositivos embebidos corren MicroPython y usan estas librerías para:
@@ -124,17 +134,6 @@ Los dispositivos embebidos corren MicroPython y usan estas librerías para:
 Este esquema facilita la creación de un sistema distribuido de monitoreo y control remoto, adaptable a distintas aplicaciones industriales o domóticas.
 
 ---
-
-## 🛠️ Funcionalidad del sistema de control de temperatura
-
-El código de control implementa:
-
-- Lectura de sensores de temperatura en tiempo real.
-- Publicación de datos al broker MQTT usando las librerías robustas.
-- Recepción de comandos para ajustar parámetros de mezcla o alarmas.
-- Reconexión automática en caso de pérdida de conexión.
-
-Esto forma parte del proyecto integrador donde el mezclador de pinturas requiere un control preciso de temperatura para asegurar la calidad del producto final.
 
 ## 📌 Notas Importantes
 
