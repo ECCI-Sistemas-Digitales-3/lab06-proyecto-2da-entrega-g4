@@ -145,7 +145,9 @@ Este esquema facilita la creación de un sistema distribuido de monitoreo y cont
 
 - Los tiempos de lectura y publicación son configurables
 
-## 📊 Visualizacion 
+---
+
+## 📊 Visualizacion de Datos
 
 A continuación se presentan evidencias gráficas del funcionamiento del sistema de monitoreo y control de temperatura:
 
