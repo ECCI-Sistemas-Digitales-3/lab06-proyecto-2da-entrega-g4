@@ -28,16 +28,16 @@ Este proyecto implementa un sistema distribuido para la adquisición y transmisi
 
 - [`flows.json`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/flows.json) Archivo de configuración para simulaciones o flujos relacionados.
 
-## 📂 Estructura de Archivos
+## 📂 Estructura de Archivos de codigo
 
 | Archivo                    | Descripción                                         |
 |---------------------------|-----------------------------------------------------|
-| `Lectura_ds18x20.py`       | Lectura básica de sensores DS18B20.                |
-| `Pub&Sub_Mqtt_ds18x20.py`  | Publicación de temperatura y recepción de comandos.|
-| `Pub_Mqtt.py`              | Publicación continua de valor simulado.            |
-| `Sub_Mqtt.py`              | Cliente MQTT que controla un LED según el mensaje. |
-| `ds18x20.py`               | Librería para sensores DS18B20.                    |
-| `onewire.py`               | Librería del protocolo 1-Wire.                     |
+| [`Lectura_ds18x20.py`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/Codigos/Lectura_ds18x20.py)       | Lectura básica de sensores DS18B20.                |
+| [`Pub&Sub_Mqtt_ds18x20.py`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/Codigos/Pub&Sub_Mqtt_ds18x20.py)  | Publicación de temperatura y recepción de comandos.|
+| [`Pub_Mqtt.py`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/Codigos/Pub_Mqtt.py)               | Publicación continua de valor simulado.            |
+| [`Sub_Mqtt.py`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/Codigos/Sub_Mqtt.py)               | Cliente MQTT que controla un LED según el mensaje. |
+| [`ds18x20.py`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/Codigos/ds18x20.py)                | Librería para sensores DS18B20.                    |
+| [`onewire.py`](https://github.com/ECCI-Sistemas-Digitales-3/lab06-proyecto-2da-entrega-g4/blob/main/Codigos/onewire.py)                | Librería del protocolo 1-Wire.                     |
 
 ## 🧱 Componentes del Sistema
 ### 📡 Raspberry Pi Pico W (Nodo Sensor)
@@ -91,8 +91,6 @@ El proyecto requiere adaptar librerías MQTT ligeras y personalizadas para el en
 - `Lectura_ds18x20.py`  
   Gestiona la lectura de uno o varios sensores DS18B20 conectados a un pin específico, mostrando las temperaturas en consola. Adicionalmente para cada sensor se obtuvo la direccion.
   
-Direccion Sensor_1: ![Direccion Sensor_1](Imagenes/Direccion_Sensor1.jpg) Direccion Sensor_2: ![Direccion Sensor_2](Imagenes/Direccion_Sensor2.jpg) Direccion Sensor_3: ![Direccion Sensor_3](Imagenes/Direccion_Sensor3.jpg)
-
 - `Pub&Sub_Mqtt_ds18x20.py`  
   Combina la lectura de sensores con la publicación periódica de sus temperaturas a tópicos MQTT específicos. Además, se suscribe a tópicos de control para activar o desactivar resistencias eléctricas en el sistema, gestionando los mensajes recibidos.
 
@@ -106,6 +104,7 @@ Direccion Sensor_1: ![Direccion Sensor_1](Imagenes/Direccion_Sensor1.jpg) Direcc
   Contiene la configuración de red Wi-Fi para facilitar la conexión de los dispositivos embebidos.
 
 **📊 Node-RED**
+
 Para el monitoreo remoto del sistema de control de temperatura, se utilizó Node-RED como plataforma de visualización y control. A través de esta herramienta, se diseñó un panel interactivo donde se muestran las temperaturas en tiempo real obtenidas por los sensores DS18B20, y se controlan actuadores como LEDs o resistencias.
 
 El flujo de Node-RED se conecta al broker MQTT para lectura y control. Esto permite una visualización clara del estado del sistema y facilita la interacción.
