@@ -109,7 +109,9 @@ Para el monitoreo remoto del sistema de control de temperatura, se utilizó Node
 
 El flujo de Node-RED se conecta al broker MQTT para lectura y control. Esto permite una visualización clara del estado del sistema y facilita la interacción.
 
-**Funcionamiento General**
+---
+
+## 🧩 Funcionamiento General
 
 Los dispositivos embebidos corren MicroPython y usan estas librerías para:
 
